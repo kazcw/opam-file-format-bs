@@ -1,0 +1,37 @@
+{
+  "name": "opam-file-format-bs",
+  "version": "2.0.0",
+  "generators" : [
+    {
+      "name" : "ocamlyacc",
+      "command": "ocamlyacc $in"
+    },
+    {
+      "name" : "ocamllex",
+      "command": "ocamllex $in"
+    }
+  ],
+  "sources": {
+    "dir": "opam-file-format/src",
+    "generators": [
+      {
+        "name": "ocamlyacc",
+        "edge": ["opamBaseParser.ml", "opamBaseParser.mli", ":", "opamBaseParser.mly"]
+      },
+      {
+        "name": "ocamllex",
+        "edge": ["opamLexer.ml", ":", "opamLexer.mll"]
+      }
+    ]
+  },
+  "package-specs": {
+    "module": "commonjs"
+  },
+  "suffix": ".bs.js",
+  "bs-dependencies": [
+  ],
+  "warnings": {
+    "error" : "+101"
+  },
+  "refmt": 3
+}
